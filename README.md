@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Muslim Wireless Internet</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/* ================= Body & Background ================= */
+body{
+    margin:0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    text-align:center;
+    color:#fff;
+    overflow-x:hidden;
+    background: linear-gradient(to bottom, #0a3d62, #3c6382);
+    position: relative;
+}
+
+/* ================= Towers & Signals ================= */
+.background{
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    z-index:-1;
+    overflow:hidden;
+}
+
+.tower{
+    position:absolute;
+    bottom:0;
+    width:80px;
+    opacity:0.6;
+    animation: towerMove 6s infinite alternate;
+}
+
+/* Tower positions */
+.tower:nth-child(1){ left: 10%; animation-delay:0s;}
+.tower:nth-child(2){ left: 25%; animation-delay:1s;}
+.tower:nth-child(3){ left: 40%; animation-delay:2s;}
+.tower:nth-child(4){ left: 55%; animation-delay:3s;}
+.tower:nth-child(5){ left: 70%; animation-delay:4s;}
+.tower:nth-child(6){ left: 85%; animation-delay:5s;}
+
+@keyframes towerMove{
+    0%{ transform: translateY(0);}
+    50%{ transform: translateY(-15px);}
+    100%{ transform: translateY(0);}
+}
+
+.signal{
+    position:absolute;
+    width:2px;
+    height:80px;
+    background: rgba(0,255,0,0.6);
+    bottom:80px;
+    animation: signalMove 2s infinite linear;
+}
+.signal:nth-child(1){ left: 12%; animation-delay:0s;}
+.signal:nth-child(2){ left: 27%; animation-delay:0.5s;}
+.signal:nth-child(3){ left: 42%; animation-delay:1s;}
+.signal:nth-child(4){ left: 57%; animation-delay:1.5s;}
+.signal:nth-child(5){ left: 72%; animation-delay:2s;}
+.signal:nth-child(6){ left: 87%; animation-delay:2.5s;}
+
+@keyframes signalMove{
+    0%{ height:0; opacity:0;}
+    50%{ height:120px; opacity:1;}
+    100%{ height:0; opacity:0;}
+}
+
+/* ================= Snow Effect ================= */
+.snowflake{
+    position: fixed;
+    top: -10px;
+    z-index: 9999;
+    user-select: none;
+    pointer-events: none;
+    color: rgba(255,255,255,0.8);
+    font-size: 12px;
+    animation-name: fall;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes fall{
+    0% { transform: translateY(0px) translateX(0px);}
+    100% { transform: translateY(100vh) translateX(50px);}
+}
+
+/* ================= Header ================= */
+header{
+    background: linear-gradient(90deg, #0077cc, #00bcd4);
+    color:white;
+    padding:50px 20px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+header h1{
+    font-size: 40px;
+    margin:0;
+    letter-spacing: 2px;
+    animation: shake 2s infinite;
+}
+header p{
+    font-size: 18px;
+    margin-top:10px;
+    font-weight: 500;
+}
+@keyframes shake {
+    0% { transform: translateX(0px);}
+    25% { transform: translateX(5px);}
+    50% { transform: translateX(-5px);}
+    75% { transform: translateX(5px);}
+    100% { transform: translateX(0px);}
+}
+
+/* ================= Packages ================= */
+section h2{
+    margin-top:20px;
+    color:#ffda79;
+    text-shadow: 1px 1px 5px #000;
+}
+.packages{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:25px;
+    margin-top:30px;
+}
+.box{
+    background: linear-gradient(135deg, #ff9ff3, #feca57);
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+.box::after{
+    content:"⚡";
+    position:absolute;
+    top:10px; right:10px;
+    font-size:20px;
+    opacity:0.5;
+    animation: bolt 1s infinite alternate;
+}
+@keyframes bolt{
+    0%{ transform: translateY(0);}
+    100%{ transform: translateY(10px);}
+}
+.box:hover{
+    transform: translateY(-10px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.5);
+}
+.box h3{
+    margin:10px 0;
+    color:#0d3d6d;
+}
+.price{
+    font-size:20px;
+    font-weight:bold;
+    color:#198754;
+}
+
+/* ================= Buttons ================= */
+a.btn{
+    display:inline-block;
+    padding:12px 25px;
+    margin:10px 5px;
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:bold;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+a.btn::before{
+    content:'';
+    position:absolute;
+    top:0; left:-75%;
+    width:50%;
+    height:100%;
+    background:rgba(255,255,255,0.5);
+    transform:skewX(-25deg);
+    transition:0.5s;
+}
+a.btn:hover::before{
+    left:125%;
+}
+a.btn:hover{
+    transform: scale(1.1);
+}
+a.call{
+    background:#198754;
+}
+a.call:hover{
+    background:#146c43;
+}
+
+/* ================= Footer ================= */
+footer{
+    margin-top:40px;
+    background: linear-gradient(90deg, #0077cc, #00bcd4);
+    color:white;
+    padding:20px;
+    border-top-left-radius:50px;
+    border-top-right-radius:50px;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
+    font-size:16px;
+}
+</style>
+</head>
+<body>
+
+<!-- Towers & Signals -->
+<div class="background">
+    <img src="https://i.ibb.co/9vL5wZ9/tower.png" class="tower">
+    <img src="https://i.ibb.co/9vL5wZ9/tower.png" class="tower">
+    <img src="https://i.ibb.co/9vL5wZ9/tower.png" class="tower">
+    <img src="https://i.ibb.co/9vL5wZ9/tower.png" class="tower">
+    <img src="https://i.ibb.co/9vL5wZ9/tower.png" class="tower">
+    <div class="signal"></div>
+    <div class="signal"></div>
+    <div class="signal"></div>
+    <div class="signal"></div>
+    <div class="signal"></div>
+    <div class="signal"></div>
+</div>
+
+<!-- Snowflakes -->
+<script>
+for(let i=0;i<50;i++){
+    let snow=document.createElement("div");
+    snow.className="snowflake";
+    snow.style.left=Math.random()*100+"%";
+    snow.style.fontSize=Math.random()*15+10+"px";
+    snow.innerText="❄";
+    snow.style.animationDuration=(5+Math.random()*5)+"s";
+    document.body.appendChild(snow);
+}
+</script>
+
+<header>
+<h1>Muslim Wireless Internet</h1>
+<p>Fast & Reliable Wireless Internet Service</p>
+</header>
+
+<section>
+<h2>Our Packages</h2>
+<div class="packages">
+<div class="box"><h3>6 MB</h3><p class="price">2000 PKR</p></div>
+<div class="box"><h3>9 MB</h3><p class="price">2800 PKR</p></div>
+<div class="box"><h3>7/21 MB</h3><p class="price">3300 PKR</p></div>
+<div class="box"><h3>12 MB</h3><p class="price">3500 PKR</p></div>
+<div class="box"><h3>15 MB</h3><p class="price">4000 PKR</p></div>
+<div class="box"><h3>18 MB</h3><p class="price">4500 PKR</p></div>
+<div class="box"><h3>25 MB</h3><p class="price">5000 PKR</p></div>
+<div class="box"><h3>30 MB</h3><p class="price">6500 PKR</p></div>
+</div>
+</section>
+
+<section class="contact">
+<h2>Contact Us</h2>
+<p>Ali: 03459836544</p>
+<p>Shujaa Ali: 03485210711</p>
+<a class="btn" href="https://wa.me/923459836544?text=Hello%20Ali,%20I%20am%20interested%20in%20your%20internet%20package." target="_blank">Message Ali</a>
+<a class="btn" href="https://wa.me/923485210711?text=Hello%20Shujaa%20Ali,%20I%20am%20interested%20in%20your%20internet%20package." target="_blank">Message Shujaa</a>
+<br>
+<a class="btn call" href="tel:03459836544">Call Now</a>
+</section>
+
+<footer>
+<p>Serving All Areas - Muslim Wireless Internet</p>
+</footer>
+
+</body>
+</html>
