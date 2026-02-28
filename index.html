@@ -1,67 +1,128 @@
 
-nano index.html
 <!DOCTYPE html>
 <html>
 <head>
 <title>Muslim Wireless Internet</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
+/* Body & Background */
 body{
     margin:0;
-    font-family: Arial, sans-serif;
-    background:#f4f6f9;
-}
-header{
-    background:#0d6efd;
-    color:white;
-    padding:30px;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(to bottom right, #e0f7fa, #80deea);
     text-align:center;
+    color:#333;
 }
-section{
-    padding:20px;
+
+/* Header with animated title */
+header{
+    background: linear-gradient(90deg, #0077cc, #00bcd4);
+    color:white;
+    padding:50px 20px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+header h1{
+    font-size: 36px;
+    margin:0;
+    letter-spacing: 2px;
+    animation: shake 2s infinite;
+}
+header p{
+    font-size: 18px;
+    margin-top:10px;
+    font-weight: 500;
+}
+
+/* Shake animation for name */
+@keyframes shake {
+    0% { transform: translateX(0px);}
+    25% { transform: translateX(5px);}
+    50% { transform: translateX(-5px);}
+    75% { transform: translateX(5px);}
+    100% { transform: translateX(0px);}
+}
+
+/* Packages Section */
+section h2{
+    margin-top:20px;
+    color:#0077cc;
 }
 .packages{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:15px;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+    margin-top:30px;
 }
 .box{
     background:white;
-    padding:15px;
-    border-radius:10px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    text-align:center;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.box:hover{
+    transform: translateY(-10px);
+    box-shadow:0 12px 25px rgba(0,0,0,0.2);
 }
 .box h3{
     margin:10px 0;
-    color:#0d6efd;
+    color:#0077cc;
 }
 .price{
-    font-size:18px;
+    font-size:20px;
     font-weight:bold;
+    color:#28a745;
 }
-.contact{
-    text-align:center;
-    margin-top:20px;
-}
-.btn{
+
+/* Buttons with shine effect */
+a.btn{
     display:inline-block;
-    padding:10px 20px;
-    margin:5px;
+    padding:12px 25px;
+    margin:10px 5px;
     background:#25D366;
     color:white;
     text-decoration:none;
-    border-radius:5px;
+    border-radius:8px;
+    font-weight:bold;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s;
 }
-.call{
+a.btn::before{
+    content:'';
+    position:absolute;
+    top:0; left:-75%;
+    width:50%;
+    height:100%;
+    background:rgba(255,255,255,0.5);
+    transform:skewX(-25deg);
+    transition:0.5s;
+}
+a.btn:hover::before{
+    left:125%;
+}
+a.btn:hover{
+    transform: scale(1.1);
+}
+a.call{
     background:#198754;
 }
+a.call:hover{
+    background:#146c43;
+}
+
+/* Footer */
 footer{
-    background:#0d6efd;
+    margin-top:40px;
+    background: linear-gradient(90deg, #0077cc, #00bcd4);
     color:white;
-    text-align:center;
-    padding:15px;
-    margin-top:20px;
+    padding:20px;
+    border-top-left-radius:50px;
+    border-top-right-radius:50px;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
+    font-size:16px;
 }
 </style>
 </head>
@@ -73,9 +134,8 @@ footer{
 </header>
 
 <section>
-<h2 style="text-align:center;">Our Packages</h2>
+<h2>Our Packages</h2>
 <div class="packages">
-
 <div class="box"><h3>6 MB</h3><p class="price">2000 PKR</p></div>
 <div class="box"><h3>9 MB</h3><p class="price">2800 PKR</p></div>
 <div class="box"><h3>7/21 MB</h3><p class="price">3300 PKR</p></div>
@@ -84,7 +144,6 @@ footer{
 <div class="box"><h3>18 MB</h3><p class="price">4500 PKR</p></div>
 <div class="box"><h3>25 MB</h3><p class="price">5000 PKR</p></div>
 <div class="box"><h3>30 MB</h3><p class="price">6500 PKR</p></div>
-
 </div>
 </section>
 
@@ -92,7 +151,6 @@ footer{
 <h2>Contact Us</h2>
 <p>Ali: 03459836544</p>
 <p>Shujaa Ali: 03485210711</p>
-
 <a class="btn" href="https://wa.me/923459836544" target="_blank">WhatsApp Ali</a>
 <a class="btn" href="https://wa.me/923485210711" target="_blank">WhatsApp Shujaa</a>
 <br>
