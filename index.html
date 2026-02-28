@@ -9,9 +9,59 @@
 body{
     margin:0;
     font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: linear-gradient(to bottom right, #e0f7fa, #80deea);
     text-align:center;
     color:#333;
+    overflow-x:hidden;
+    background: linear-gradient(to bottom right, #e0f7fa, #80deea);
+}
+
+/* Animated wireless tower background */
+.background{
+    position:fixed;
+    top:0; left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    overflow:hidden;
+}
+
+.tower{
+    position:absolute;
+    bottom:0;
+    width:80px;
+    opacity:0.5;
+    animation: towerMove 6s infinite alternate;
+}
+
+.tower:nth-child(2){ left: 20%; animation-delay:1s;}
+.tower:nth-child(3){ left: 40%; animation-delay:2s;}
+.tower:nth-child(4){ left: 60%; animation-delay:3s;}
+.tower:nth-child(5){ left: 80%; animation-delay:4s;}
+
+@keyframes towerMove{
+    0%{ transform: translateY(0);}
+    50%{ transform: translateY(-10px);}
+    100%{ transform: translateY(0);}
+}
+
+/* Signal lines */
+.signal{
+    position:absolute;
+    width:2px;
+    height:80px;
+    background: rgba(0,255,0,0.6);
+    bottom:80px;
+    animation: signalMove 2s infinite linear;
+}
+.signal:nth-child(1){ left: 22%; animation-delay:0s;}
+.signal:nth-child(2){ left: 42%; animation-delay:0.5s;}
+.signal:nth-child(3){ left: 62%; animation-delay:1s;}
+.signal:nth-child(4){ left: 82%; animation-delay:1.5s;}
+
+@keyframes signalMove{
+    0%{ height:0; opacity:0;}
+    50%{ height:120px; opacity:1;}
+    100%{ height:0; opacity:0;}
 }
 
 /* Header with animated title */
@@ -34,8 +84,6 @@ header p{
     margin-top:10px;
     font-weight: 500;
 }
-
-/* Shake animation for name */
 @keyframes shake {
     0% { transform: translateX(0px);}
     25% { transform: translateX(5px);}
@@ -127,6 +175,19 @@ footer{
 </style>
 </head>
 <body>
+
+<!-- Animated Background -->
+<div class="background">
+    <img src="images/tower.png" class="tower">
+    <img src="images/tower.png" class="tower">
+    <img src="images/tower.png" class="tower">
+    <img src="images/tower.png" class="tower">
+    <img src="images/tower.png" class="tower">
+    <div class="signal"></div>
+    <div class="signal"></div>
+    <div class="signal"></div>
+    <div class="signal"></div>
+</div>
 
 <header>
 <h1>Muslim Wireless Internet</h1>
